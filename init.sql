@@ -1,0 +1,2 @@
+CREATE USER magalu;
+ALTER USER magalu WITH SUPERUSER;
