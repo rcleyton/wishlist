@@ -1,5 +1,12 @@
 class UsersController < ApplicationController
 
+  # GET /users
+  # Lista all users
+  def index
+    @users = User.all
+    render json: @users, status: :ok
+  end
+
   # POST /users
   # Create a new user
   def create
@@ -16,5 +23,5 @@ class UsersController < ApplicationController
   def user_params
     params.permit(:email, :password, :password_confirmation)
   end
-  
+
 end
