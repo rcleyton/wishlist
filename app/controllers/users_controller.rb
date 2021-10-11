@@ -31,6 +31,14 @@ class UsersController < ApplicationController
     end
   end
 
+  # DELETE /users/id
+  # Remove user
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+    render json: @user, status: :ok
+  end
+
   private
   def user_params
     params.permit(:email, :password, :password_confirmation)
