@@ -8,4 +8,12 @@ class User < ApplicationRecord
   validates :password,
     length: { minimum: 6 },
     if: -> { new_record? || !password.nil? }
+
+  def as_json(options={})
+    super(
+          only: [:id, :name, :email],
+          include: { favorite: { only: :product_id } }
+         )
+  end
+  
 end
